@@ -138,19 +138,6 @@ with tab1:
     df_matriks = pd.DataFrame(matriks_ahp, index=nama_kriteria, columns=nama_kriteria)
     st.dataframe(df_matriks, use_container_width=True)
     
-    # Tampilkan matriks dalam format yang lebih mudah dibaca
-    with st.expander("📖 Penjelasan Skala Saaty"):
-        st.markdown("""
-        **Skala Saaty (1-9):**
-        - 1 = Sama penting
-        - 3 = Sedikit lebih penting
-        - 5 = Lebih penting
-        - 7 = Sangat lebih penting
-        - 9 = Mutlak lebih penting
-        - 2,4,6,8 = Nilai tengah antara dua penilaian berdekatan
-        
-        **Nilai pecahan (1/3, 1/5, dst)** berarti kebalikannya (kriteria kolom lebih penting)
-        """)
 
     if st.button("Hitung Bobot AHP", key='btn_ahp'):
         weight, cr = hitung_bobot_ahp(matriks_ahp)
