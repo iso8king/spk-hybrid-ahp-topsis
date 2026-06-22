@@ -146,7 +146,7 @@ with tab1:
         st.session_state['nama_kriteria'] = nama_kriteria 
         st.session_state['nama_alternatif'] = nama_alternatif  
         
-        st.success(f"Consistency Ratio: {cr:.3f} {'(Konsisten ✓)' if cr <= 0.1 else '(Tidak Konsisten)'}")
+        st.success(f"Consistency Ratio: {cr:.3f} {'(Konsisten ✓)' if cr <=1 else '(Tidak Konsisten)'}")
         st.info(f"**Bobot Kriteria:** {', '.join([f'{nama}: {b:.3f}' for nama, b in zip(nama_kriteria, weight)])}")
 
 with tab2:
