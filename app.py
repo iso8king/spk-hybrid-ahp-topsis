@@ -75,7 +75,7 @@ st.set_page_config(page_title="SPK Hybrid AHP-TOPSIS", layout="wide")
 
 st.title("Sistem Pendukung Keputusan")
 st.subheader("Study : Pemilihan Smartphone Terbaik!")
-st.subheader("Metode AHP + TOPSIS")
+st.caption("Metode AHP + TOPSIS")
 
 with st.sidebar:
     st.header("Input Data")
