@@ -73,7 +73,8 @@ def hitung_topsis(alternatif, weight, tipe_kriteria, nama_alternatif):
 
 st.set_page_config(page_title="SPK Hybrid AHP-TOPSIS", layout="wide")
 
-st.title("Sistem Pendukung Keputusan Hybrid")
+st.title("Sistem Pendukung Keputusan")
+st.subheader("Study : Pemilihan Smartphone Terbaik!")
 st.subheader("Metode AHP + TOPSIS")
 
 with st.sidebar:
@@ -100,7 +101,6 @@ with tab1:
     st.caption("Isi matriks dengan skala Saaty (1-9). Nilai >1 berarti kriteria baris lebih penting dari kolom.")
     st.image("https://image2.slideserve.com/5065675/slide22-l.jpg", caption='Saaty Scale', use_container_width=True)
     
-    # 🔥 PERBAIKAN: Matriks AHP dengan skala fleksibel
     matriks_ahp = np.ones((jumlah_kriteria, jumlah_kriteria))
     
     for i in range(jumlah_kriteria):
