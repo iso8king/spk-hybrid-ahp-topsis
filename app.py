@@ -17,7 +17,7 @@ def hitung_bobot_ahp(matriks):
     lambda_max = np.mean(aw / weight)
 
     # ci
-    ci = (lambda_max - n) / (n - 1)  # Perbaiki: kurung harus benar
+    ci = (lambda_max - n) / (n - 1) 
     ri = {1: 0.0, 2: 0.0, 3: 0.58, 4: 0.9, 5: 1.12, 6: 1.24, 7: 1.32, 8: 1.41, 9: 1.45, 10: 1.49}
     cr = ci / ri.get(n, 1.49) if n > 2 else 0.0
 
@@ -63,12 +63,11 @@ def hitung_topsis(alternatif, weight, tipe_kriteria, nama_alternatif):
     # skor preferensi
     skor = jarak_negatif / (jarak_positif + jarak_negatif)
 
-    rank = np.argsort(skor)[::-1] + 1 
+    rank = pd.Series(skor).rank(ascending=False, method='min').astype(int)
     return pd.DataFrame({
-        'Alternatif': nama_alternatif,  
-        'Skor': skor,
-        'Ranking': rank
-    }).sort_values('Ranking')
+    'Alternatif': nama_alternatif,  
+    'Skor': skor,
+    'Ranking': rank}).sort_values('Ranking').reset_index(drop=True)
 
 
 st.set_page_config(page_title="SPK Hybrid AHP-TOPSIS", layout="wide")
